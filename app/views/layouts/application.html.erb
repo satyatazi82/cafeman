@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Cafeteria</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag "application", media: "all", 'data-turbolinks-track': "reload" %>
+    <%# <%= javascript_pack_tag "application", media: "all", 'data-turbolinks-track': "reload" %> %>
+  </head>
+
+  <nav class="nav-container">
+    
+    <%= link_to "/orders", class: "nav-link" do %>
+     <h1 class='logo-name'>
+      <img src="/chef.svg" class='nav-logo'>
+      Cafeteria
+     </h1> 
+    <% end %>
+    <% if @current_user %>
+        <h6><%= @current_user.name %> , <%= @current_user.role %>! <h6>
+        <%= link_to "Logout", destroy_session_path, method: "delete", class: "btn btn-outline-dark" %>
+    <% end %>
+  </nav>
+
+   <% if flash[:error] %>
+      <div  class="alert alert-danger" role="alert">
+        <%= flash[:error] %>
+      </div>
+    <% end %>
+
+    <% if flash[:success] %>
+      <div  class="alert alert-success" role="alert">
+        <%= flash[:success] %>
+      </div>
+    <% end %>
+
+  <body class='container'>
+    <%= yield %>
+  </body>
+  <footer >
+    2021 &copy; Cafeteria
+  </footer>
+</html>

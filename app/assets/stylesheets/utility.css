@@ -1,0 +1,17 @@
+.my-20 {
+  margin: 20px 0px;
+}
+.flex-down {
+  display: flex;
+  flex-direction: column;
+  width: 360px;
+}
+.mr-20 {
+  margin-right: 20px;
+}
+.flex {
+  display: flex;
+}
+.mr-20 {
+  margin-right: 20px;
+}

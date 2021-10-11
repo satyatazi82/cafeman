@@ -1,0 +1,20 @@
+<table class="table  table-bordered">
+    <thead>
+      <tr>
+        <th scope="col">Name</th>
+        <th scope="col">&#8377; Price</th>
+        <th scope="col">Quantity</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% cart_data.each do |item| %>
+        <tr>
+          <td ><%= item.menu_item_name %></td>
+          <td><%= item.menu_item_price %></td>
+          <td>
+            <%= item.count %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+</table>

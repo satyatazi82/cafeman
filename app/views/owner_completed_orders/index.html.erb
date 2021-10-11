@@ -1,0 +1,20 @@
+<h1 class='heading'>Completed Orders by Owner:</h1>
+
+<div class="links-container">
+    <%= link_to "Place Order", orders_path, class: "btn btn-outline-dark mr-20" %>
+    <%= link_to "Active Order", "/active/orders", class: "btn btn-outline-dark mr-20" %>
+    <%= link_to "Edit Menu & Items ", "/menus", class: "btn btn-outline-dark mr-20" %>
+    <%= link_to "Completed Order", "/owner/completed", class: "btn btn-outline-dark mr-20" %>
+    <%= link_to "Dashboard", "/dashboard", class: "btn btn-outline-dark mr-20" %>
+</div>
+
+<% Order.where(order_status: "completed").ids.each do |id| %>
+    <%= render partial: "owner-completed-order",
+               locals: { cart_data: Order.find(id).order_items } %>
+
+    <div class='flex my-20'>
+        <p class='mr-20'>Total Items: <%= Order.get_total_items_count(id) %></p>
+        <p class='mr-20'>Total Price: <%= Order.get_total_items_price(id) %></p>
+    </div>
+
+<% end %>

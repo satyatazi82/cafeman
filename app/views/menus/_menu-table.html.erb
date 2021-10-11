@@ -1,0 +1,26 @@
+<table class="table table-bordered">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Name</th>
+        <th scope="col">Description</th>
+        <th scope="col">&#8377; Price</th>
+        <th scope="col">Delete</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% menu_data.each do |item| %>
+        <tr>
+          <th scope="row"><%= item.id %></th>
+          <td ><%= item.name %></td>
+          <td><%= item.description %></td>
+          <td><%= item.price %></td>
+          <td>
+            <%= form_with(url: "/menu_items/#{item.id}", method: "delete") do %>  
+              <input type="image" src="/trash.svg" class='trash'>
+            <% end %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+</table>

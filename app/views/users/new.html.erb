@@ -1,0 +1,22 @@
+<h1 class="heading">Register Here</h1>
+
+<%= form_with url: users_path, class: "form-container flex-down" do |form| %>
+
+    <p class='label'>Name: </p>
+    <%= form.text_field :name, class: "form-field" %>
+
+    <p class='label'>Role: </p>
+    <%= select_tag "role", options_for_select(["customer", "clerk", "owner"], "customer"), class: "form-field" %>
+
+    <p class='label'>Email: </p>
+    <%= form.email_field :email, class: "form-field" %>
+
+    <p class='label'>Password:</p>
+    <%= form.password_field :password, class: "form-field" %>
+
+    <%= form.submit "Register", class: "form-field btn-outline-dark" %>
+
+<% end %>
+
+
+

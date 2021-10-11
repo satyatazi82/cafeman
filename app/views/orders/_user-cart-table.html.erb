@@ -1,0 +1,28 @@
+<table class="table  table-bordered">
+    <thead>
+      <tr>
+        <th scope="col">Name</th>
+        <th scope="col">&#8377; Price</th>
+        <th scope="col">Quantity</th>
+        <th scope="col">Delete</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% cart_data.each do |item| %>
+        <tr>
+          <td ><%= item.menu_item_name %></td>
+          <td><%= item.menu_item_price %></td>
+          <td>
+            <%= form_with(url: "/order_items/#{item.id}", method: "PUT", class: "form-container") do %>
+              <%= text_field_tag "count", nil, type: "number", class: "form-field form-quantity", value: "#{item.count}", onchange: "this.form.submit()" %>
+            <% end %>
+          </td>
+          <td>
+            <%= form_with(url: "/order_items/#{item.id}", method: "DELETE") do %>  
+              <input type="image" src="/trash.svg" class='trash'>
+            <% end %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+</table>

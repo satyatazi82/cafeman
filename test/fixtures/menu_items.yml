@@ -1,0 +1,13 @@
+# ? Menu Items:
+
+burger:
+  menu_id: 1
+  name: Burger
+  description: Bun , Veggies , Sauces
+  price: 30
+
+pizza:
+  menu_id: 1
+  name: Pizza
+  description: Italian Stuff
+  price: 90

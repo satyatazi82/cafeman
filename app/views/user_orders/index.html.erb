@@ -1,0 +1,25 @@
+<h1>Your Order Details:</h1>
+
+<div class="links-container">
+    <%= link_to "Place Order", orders_path, class: "btn btn-outline-dark mr-20" %>
+    <%= link_to "Completed Order", "/user/completed", class: "btn btn-outline-dark mr-20" %>
+</div>
+
+<% if @current_user.is_owner? %>
+<div class="links-container">
+    <%= link_to "Edit Orders", "/active/orders", class: "btn btn-outline-dark mr-20" %>
+    <%= link_to "Edit Menu & Items ", "/menus", class: "btn btn-outline-dark mr-20" %>
+    <%= link_to "Delivered Orders", "/owner/completed", class: "btn btn-outline-dark mr-20" %>
+    <%= link_to "Dashboard", "/dashboard", class: "btn btn-outline-dark mr-20" %>
+</div>
+<% end %>
+
+<h5> UserId: <%= @current_user.id %> </h5>
+
+<% Order.get_users_active_order_ids(@current_user.id).each do |id| %>
+
+  <%= render partial: "user-order-cart",
+             locals: { cart_data: Order.find(id).order_items } %>
+  <h4 class='form-label-header my-20'>Total Items: <%= Order.get_total_items_count(id) %></h4>
+  <h4 class='form-label-header my-20'>Total Price: <%= Order.get_total_items_price(id) %></h4>
+<% end %>

@@ -1,0 +1,19 @@
+# Users Stuff
+
+deep:
+  name: deepankar
+  role: customer
+  email: deepankar@gmail.com
+  password_digest: <%= BCrypt::Password.create('deepankar') %>
+
+duma:
+  name: duma
+  role: owner
+  email: duma@gmail.com
+  password_digest: <%= BCrypt::Password.create('duma') %>
+
+dan:
+  name: danillo
+  role: customer
+  email: dan@gmail.com
+  password_digest: <%= BCrypt::Password.create('danillo') %>
