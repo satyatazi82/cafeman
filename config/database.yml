@@ -1,13 +1,13 @@
 default: &default
   adapter: postgresql
+  host: localhost
+  user: postgres
+  password: root
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
   timeout: 5000
 
 development:
   <<: *default
-  host: localhost
-  user: postgres
-  password: root
   database: cafeman
 
 # Warning: The database defined as "test" will be erased and
