@@ -59,3 +59,5 @@ gem "pg", "~> 1.2"
 gem "chartkick"
 
 gem "groupdate"
+
+gem "bootstrap", "~> 5.1"
