@@ -1,14 +1,30 @@
+
+
+
+
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
+    <div class="navbar-nav">
+    
+    <%= link_to "Place Order", orders_path, class: "nav-link" %>
+    <%= link_to "Completed Orders", "/owner/completed", class: "nav-link" %>
+    <%= link_to "Edit Orders", "/active/orders", class: "nav-link" %>
+    <%= link_to "Dashboard", "/dashboard", class: "nav-link" %>
+
+     
+    </div>
+  </div>
+</nav>
+
+<div class="container">
+
 <h1 class='heading'> 
 Menu Page
 </h1>
-
-
-<div class="links-container">
-    <%= link_to "Place Order", orders_path, class: "btn btn-outline-dark mr-20" %>
-    <%= link_to "Completed Orders", "/owner/completed", class: "btn btn-outline-dark mr-20" %>
-    <%= link_to "Edit Orders", "/active/orders", class: "btn btn-outline-dark mr-20" %>
-    <%= link_to "Dashboard", "/dashboard", class: "btn btn-outline-dark mr-20" %>
-</div>
 
 <h5 class='form-label-header'>Add Menu-Item</h5>
 <%= form_with(url: "/menu_items", method: "POST", class: "form-container") do %>
@@ -38,3 +54,5 @@ Menu Page
   <%= render partial: "menu-table",
              locals: { menu_data: MenuItem.menu_by_id(el.id) } %>
 <% end %>
+
+</div>

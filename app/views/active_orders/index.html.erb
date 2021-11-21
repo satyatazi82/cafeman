@@ -1,11 +1,24 @@
-<h1 class='heading'>Active Orders Here for Owner</h1>
 
-<div class="links-container">
-    <%= link_to "Place Order", orders_path, class: "btn btn-outline-dark mr-20" %>
-    <%= link_to "Completed Orders", "/owner/completed", class: "btn btn-outline-dark mr-20" %>
-    <%= link_to "Edit Menu & Items ", "/menus", class: "btn btn-outline-dark mr-20" %>
-    <%= link_to "Dashboard", "/dashboard", class: "btn btn-outline-dark mr-20" %>
-</div>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
+    <div class="navbar-nav">
+    
+    <%= link_to "Place Order", orders_path, class: "nav-link" %>
+    <%= link_to "Completed Orders", "/owner/completed", class: "nav-link" %>
+    <%= link_to "Edit Orders", "/active/orders", class: "nav-link" %>
+    <%= link_to "Dashboard", "/dashboard", class: "nav-link" %>
+
+     
+    </div>
+  </div>
+</nav>
+
+<div class="container">
+
+<h1 class='heading'>Active Orders Here for Owner</h1>
 
 <h3>Total Pending Orders: <%= Order.where(order_status: "queue").count %></h3>
 
@@ -25,3 +38,4 @@
 </div>
 <% end %>
 
+</div>

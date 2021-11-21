@@ -21,7 +21,7 @@ gem "jbuilder", "~> 2.7"
 # Use Active Model has_secure_password
 gem "bcrypt", "~> 3.1.7"
 platforms :mswin do 
-  gem "wdm", :group => [:development, :test]
+  gem 'wdm', '>= 0.1.0', :group => [:development, :test]
 end
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
@@ -55,7 +55,7 @@ end
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem "tzinfo-data", platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
-gem "pg", "~> 1.2"
+gem "pg"
 
 gem "chartkick"
 
